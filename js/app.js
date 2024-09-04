@@ -66,7 +66,7 @@ function emptyList(){
   while(toDoItems.length > 0){
     toDoItems.item(0).remove();
   }
-
+  // eliminare chiave/valore nel localStorage con il metodo clear()
   localStorage.clear();
 }
 
@@ -87,6 +87,7 @@ function saveList(){
   }
   console.log(toDos);
   
+  // Non salvo la lista se non ho elementi 
   if(toDos.length !== 0){
     localStorage.setItem('toDos', JSON.stringify(toDos));
   }
