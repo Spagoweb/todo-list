@@ -66,6 +66,8 @@ function emptyList(){
   while(toDoItems.length > 0){
     toDoItems.item(0).remove();
   }
+
+  localStorage.clear();
 }
 
 
@@ -84,11 +86,13 @@ function saveList(){
     
   }
   console.log(toDos);
-
-  localStorage.setItem('toDos', JSON.stringify(toDos));
+  
+  if(toDos.length !== 0){
+    localStorage.setItem('toDos', JSON.stringify(toDos));
+  }
 }
 
-setInterval(saveList, 1500);
+setInterval(saveList, 3000);
 
 function loadList(){
   if(localStorage.getItem('toDos') != null){
